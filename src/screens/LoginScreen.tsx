@@ -6,9 +6,13 @@ import {Input} from '../components/Input';
 import {LinkText} from '../components/LinkText';
 import {SubmitButton} from '../components/SubmitButton';
 import {Colors} from '../styles/Colors';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {AuthStackParamList} from '../navigation/navigators/AuthStackNavigator';
+
+type LoginScreenProp = StackNavigationProp<AuthStackParamList, 'Login'>;
 
 export const LoginScreen: React.FC = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<LoginScreenProp>();
 
   return (
     <View style={styles.container}>
