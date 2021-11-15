@@ -9,7 +9,7 @@ export const StyledTouchOpacity = styled.TouchableOpacity`
   justify-content: center;
   border-radius: 15px;
   padding: 8px 17px 7px 17px;
-  margin: 5px 0 20px 0;
+  margin-bottom: 20px;
 `;
 
 export const StyledText = styled.Text`
