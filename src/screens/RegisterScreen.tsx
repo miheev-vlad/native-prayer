@@ -46,11 +46,13 @@ export const RegisterScreen: React.FC = () => {
           <FormWrapp>
             <Field<string>
               name="name"
+              placeholder="Name"
               component={Input}
               validate={(v: string) => (v ? undefined : 'Name is Required')}
             />
             <Field<string>
               name="email"
+              placeholder="Email"
               component={Input}
               validate={(v: string) =>
                 !validator.isEmail(v || '') && 'Valid Email is Required'
@@ -58,7 +60,9 @@ export const RegisterScreen: React.FC = () => {
             />
             <Field<string>
               name="password"
+              placeholder="Password"
               component={Input}
+              secureTextEntry
               validate={(v: string) => (v ? undefined : 'Password is Required')}
             />
             <OvalButton onPress={form.submit}>Register</OvalButton>

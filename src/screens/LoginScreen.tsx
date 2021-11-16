@@ -45,6 +45,7 @@ export const LoginScreen: React.FC = () => {
           <FormWrapp>
             <Field<string>
               name="email"
+              placeholder="Email"
               component={Input}
               validate={(v: string) =>
                 !validator.isEmail(v || '') && 'Valid Email is Required'
@@ -52,7 +53,9 @@ export const LoginScreen: React.FC = () => {
             />
             <Field<string>
               name="password"
+              placeholder="Password"
               component={Input}
+              secureTextEntry
               validate={(v: string) => (v ? undefined : 'Password is Required')}
             />
             <OvalButton onPress={form.submit}>Login</OvalButton>
