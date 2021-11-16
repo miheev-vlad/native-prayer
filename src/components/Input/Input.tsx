@@ -1,14 +1,15 @@
 import React from 'react';
-import {useField} from 'react-final-form';
+import {FieldRenderProps} from 'react-final-form';
+import {TextInputProps} from 'react-native';
 import {ErrorText, InputWrapp, StyledTextInput} from './styles';
 
-export const Input: React.FC<any> = props => {
-  const {
-    input,
-    meta: {error, touched, submitError},
-  } = useField(props.name, {
-    validate: props.validate,
-  });
+type RenderInputProps = FieldRenderProps<string, HTMLElement>;
+
+export const Input: React.FC<RenderInputProps & TextInputProps> = (
+  {input, meta}: RenderInputProps,
+  props,
+) => {
+  const {error, touched, submitError} = meta;
 
   const inputProps = {
     ...props,
@@ -18,7 +19,11 @@ export const Input: React.FC<any> = props => {
 
   return (
     <InputWrapp>
-      <StyledTextInput {...inputProps} />
+      <StyledTextInput
+        {...inputProps}
+        placeholder={input.name}
+        secureTextEntry={input.name === 'password' ? true : false}
+      />
       <ErrorText>{touched && (error || submitError) ? error : ''}</ErrorText>
     </InputWrapp>
   );

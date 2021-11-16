@@ -3,7 +3,7 @@ import {useNavigation} from '@react-navigation/core';
 import {StackNavigationProp} from '@react-navigation/stack';
 import styled from 'styled-components/native';
 import validator from 'validator';
-import {FieldRenderProps} from 'react-final-form';
+import {Field, Form} from 'react-final-form';
 import {FormApi} from 'final-form';
 import {Alert} from 'react-native';
 
@@ -13,7 +13,6 @@ import {Input} from '../components/Input';
 import {LinkText} from '../components/LinkText';
 import {OvalButton} from '../components/OvalButton';
 import {ScreensWrapp} from '../components/ScreensWrapp';
-import {Form} from '../components/Form';
 
 export const FormWrapp = styled.View`
   display: flex;
@@ -21,7 +20,7 @@ export const FormWrapp = styled.View`
   align-items: center;
 `;
 
-interface IValues {
+export interface IValues {
   name: string;
   email: string;
   password: string;
@@ -36,40 +35,36 @@ export const RegisterScreen: React.FC = () => {
     <ScreensWrapp>
       <Heading>Registration</Heading>
       <Form
-        onSubmit={(values: IValues, form: FormApi) => {
+        onSubmit={(
+          values: IValues,
+          form: FormApi<IValues, Partial<Record<string, any>>>,
+        ) => {
           Alert.alert(JSON.stringify(values));
           form.reset();
-        }}>
-        {(props: FieldRenderProps<string, any>) => (
+        }}
+        render={({form}) => (
           <FormWrapp>
-            <Input
-              name="userName"
-              placeholder="Name"
+            <Field<string>
+              name="name"
+              component={Input}
               validate={(v: string) => (v ? undefined : 'Name is Required')}
             />
-            <Input
+            <Field<string>
               name="email"
-              placeholder="Email"
-              keyboardType={'email-address'}
+              component={Input}
               validate={(v: string) =>
                 !validator.isEmail(v || '') && 'Valid Email is Required'
               }
             />
-            <Input
+            <Field<string>
               name="password"
-              placeholder="Password"
-              secureTextEntry
+              component={Input}
               validate={(v: string) => (v ? undefined : 'Password is Required')}
             />
-            <OvalButton
-              onPress={() => {
-                props.form.submit();
-              }}>
-              Register
-            </OvalButton>
+            <OvalButton onPress={form.submit}>Register</OvalButton>
           </FormWrapp>
         )}
-      </Form>
+      />
       <LinkText
         onPress={() => {
           navigation.navigate('Login');
