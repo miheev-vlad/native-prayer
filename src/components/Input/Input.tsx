@@ -3,10 +3,10 @@ import {FieldRenderProps} from 'react-final-form';
 import {TextInputProps} from 'react-native';
 import {ErrorText, InputWrapp, StyledTextInput} from './styles';
 
-type RenderInputProps = FieldRenderProps<string, HTMLElement>;
+type RenderInputProps = FieldRenderProps<string, HTMLElement> & TextInputProps;
 
-export const Input: React.FC<RenderInputProps & TextInputProps> = (
-  {input, meta}: RenderInputProps,
+export const Input: React.FC<RenderInputProps> = (
+  {input, meta, placeholder, secureTextEntry}: RenderInputProps,
   props,
 ) => {
   const {error, touched, submitError} = meta;
@@ -21,8 +21,8 @@ export const Input: React.FC<RenderInputProps & TextInputProps> = (
     <InputWrapp>
       <StyledTextInput
         {...inputProps}
-        placeholder={input.name}
-        secureTextEntry={input.name === 'password' ? true : false}
+        placeholder={placeholder}
+        secureTextEntry={secureTextEntry ? true : false}
       />
       <ErrorText>{touched && (error || submitError) ? error : ''}</ErrorText>
     </InputWrapp>
