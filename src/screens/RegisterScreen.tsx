@@ -4,8 +4,6 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import styled from 'styled-components/native';
 import validator from 'validator';
 import {Field, Form} from 'react-final-form';
-import {FormApi} from 'final-form';
-import {Alert} from 'react-native';
 
 import {AuthStackParamList} from '../navigation/navigators/AuthStackNavigator';
 import {Heading} from '../components/Heading';
@@ -13,6 +11,10 @@ import {Input} from '../components/Input';
 import {LinkText} from '../components/LinkText';
 import {OvalButton} from '../components/OvalButton';
 import {ScreensWrapp} from '../components/ScreensWrapp';
+import {useDispatch, useSelector} from 'react-redux';
+import {RootState} from '../redux/configureStore';
+import {cleareAuthError, register} from '../redux/ducks/auth/authSlice';
+import {ErrorMessage} from '../components/ErrorMessage';
 
 export const FormWrapp = styled.View`
   display: flex;
@@ -30,17 +32,23 @@ type RegisterScreenProp = StackNavigationProp<AuthStackParamList, 'Register'>;
 
 export const RegisterScreen: React.FC = () => {
   const navigation = useNavigation<RegisterScreenProp>();
+  const dispatch = useDispatch();
+  const loading = useSelector((state: RootState) => state.auth.isLoading);
+  const error = useSelector((state: RootState) => state.auth.error);
 
   return (
     <ScreensWrapp>
       <Heading>Registration</Heading>
+      {error && !loading && <ErrorMessage>{error}</ErrorMessage>}
       <Form
-        onSubmit={(
-          values: IValues,
-          form: FormApi<IValues, Partial<Record<string, any>>>,
-        ) => {
-          Alert.alert(JSON.stringify(values));
-          form.reset();
+        onSubmit={(values: IValues) => {
+          dispatch(
+            register({
+              email: values.email,
+              name: values.name,
+              password: values.password,
+            }),
+          );
         }}
         render={({form}) => (
           <FormWrapp>
@@ -66,15 +74,20 @@ export const RegisterScreen: React.FC = () => {
               validate={(v: string) => (v ? undefined : 'Password is Required')}
             />
             <OvalButton onPress={form.submit}>Register</OvalButton>
+            <LinkText
+              onPress={() => {
+                dispatch(cleareAuthError());
+                form.reset();
+                form.resetFieldState('name');
+                form.resetFieldState('email');
+                form.resetFieldState('password');
+                navigation.navigate('Login');
+              }}>
+              Already registered...
+            </LinkText>
           </FormWrapp>
         )}
       />
-      <LinkText
-        onPress={() => {
-          navigation.navigate('Login');
-        }}>
-        Already registered...
-      </LinkText>
     </ScreensWrapp>
   );
 };
