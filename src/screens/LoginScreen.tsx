@@ -5,7 +5,6 @@ import styled from 'styled-components/native';
 import validator from 'validator';
 import {Field, Form} from 'react-final-form';
 import {FormApi} from 'final-form';
-import {Text} from 'react-native';
 
 import {AuthStackParamList} from '../navigation/navigators/AuthStackNavigator';
 import {Heading} from '../components/Heading';
@@ -14,8 +13,9 @@ import {LinkText} from '../components/LinkText';
 import {OvalButton} from '../components/OvalButton';
 import {ScreensWrapp} from '../components/ScreensWrapp';
 import {useDispatch, useSelector} from 'react-redux';
-import {login} from '../redux/ducks/authSlice';
+import {login} from '../redux/ducks/auth/authSlice';
 import {RootState} from '../redux/configureStore';
+import {ErrorMessage} from '../components/ErrorMessage';
 
 export const FormWrapp = styled.View`
   display: flex;
@@ -39,15 +39,18 @@ export const LoginScreen: React.FC = () => {
   return (
     <ScreensWrapp>
       <Heading>Login</Heading>
-      {loading && <Text>Processing...</Text>}
-      {error && !loading && <Text>{error}</Text>}
+      {error && !loading && <ErrorMessage>{error}</ErrorMessage>}
       <Form
         onSubmit={(
           values: IValues,
           form: FormApi<IValues, Partial<Record<string, any>>>,
         ) => {
-          console.log(values);
-          dispatch(login());
+          dispatch(
+            login({
+              email: values.email,
+              password: values.password,
+            }),
+          );
           form.reset();
         }}
         render={({form}) => (

@@ -1,11 +1,13 @@
 import axios, {AxiosResponse} from 'axios';
 
-export function requestLoginUser() {
-  return axios.post<any, AxiosResponse<any, any>, any>(
-    'https://prayer.herokuapp.com/api/auth/sign-in',
-    {
-      email: 'email@mail.ru',
-      password: '12345',
-    },
+type LoginData = {
+  email: string;
+  password: string;
+};
+
+export function requestLoginUser(loginData: LoginData) {
+  return axios.post<any, AxiosResponse<any, any>, LoginData>(
+    'https://prayer.herokuapp.com/auth/sign-in',
+    loginData,
   );
 }

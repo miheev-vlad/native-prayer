@@ -1,14 +1,29 @@
+import {PayloadAction} from '@reduxjs/toolkit';
 import {call, put} from 'redux-saga/effects';
-import {loginFail, setAuth} from '../../ducks/authSlice';
+import {
+  authFail,
+  RequestLoginPayload,
+  setAuth,
+} from '../../ducks/auth/authSlice';
+import {setUser} from '../../ducks/user/userSlice';
 import {requestLoginUser} from '../requests/login';
 
-export function* handleLoginUser(): any {
+export function* handleLoginUser(
+  action: PayloadAction<RequestLoginPayload>,
+): any {
+  const {email, password} = action.payload;
+
   try {
-    const response = yield call(requestLoginUser);
+    const response = yield call(requestLoginUser, {email, password});
     const {data} = response;
-    yield put(setAuth({...data}));
+    if (data.name && data.name === 'EntityNotFound') {
+      yield put(authFail('Incorrect login data...'));
+    } else {
+      yield put(setAuth({...data}));
+      yield put(setUser({...data}));
+    }
   } catch (error) {
     console.log(error);
-    yield put(loginFail('Some error happened...'));
+    yield put(authFail('Some error happened...'));
   }
 }
