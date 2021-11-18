@@ -4,7 +4,6 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import styled from 'styled-components/native';
 import validator from 'validator';
 import {Field, Form} from 'react-final-form';
-import {FormApi} from 'final-form';
 
 import {AuthStackParamList} from '../navigation/navigators/AuthStackNavigator';
 import {Heading} from '../components/Heading';
@@ -13,7 +12,7 @@ import {LinkText} from '../components/LinkText';
 import {OvalButton} from '../components/OvalButton';
 import {ScreensWrapp} from '../components/ScreensWrapp';
 import {useDispatch, useSelector} from 'react-redux';
-import {login} from '../redux/ducks/auth/authSlice';
+import {cleareAuthError, login} from '../redux/ducks/auth/authSlice';
 import {RootState} from '../redux/configureStore';
 import {ErrorMessage} from '../components/ErrorMessage';
 
@@ -41,17 +40,13 @@ export const LoginScreen: React.FC = () => {
       <Heading>Login</Heading>
       {error && !loading && <ErrorMessage>{error}</ErrorMessage>}
       <Form
-        onSubmit={(
-          values: IValues,
-          form: FormApi<IValues, Partial<Record<string, any>>>,
-        ) => {
+        onSubmit={(values: IValues) => {
           dispatch(
             login({
               email: values.email,
               password: values.password,
             }),
           );
-          form.reset();
         }}
         render={({form}) => (
           <FormWrapp>
@@ -71,15 +66,19 @@ export const LoginScreen: React.FC = () => {
               validate={(v: string) => (v ? undefined : 'Password is Required')}
             />
             <OvalButton onPress={form.submit}>Login</OvalButton>
+            <LinkText
+              onPress={() => {
+                dispatch(cleareAuthError());
+                form.reset();
+                form.resetFieldState('email');
+                form.resetFieldState('password');
+                navigation.navigate('Register');
+              }}>
+              Not registered yet...
+            </LinkText>
           </FormWrapp>
         )}
       />
-      <LinkText
-        onPress={() => {
-          navigation.navigate('Register');
-        }}>
-        Not registered yet...
-      </LinkText>
     </ScreensWrapp>
   );
 };

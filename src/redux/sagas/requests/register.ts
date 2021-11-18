@@ -1,4 +1,5 @@
-import axios, {AxiosResponse} from 'axios';
+import {AxiosResponse} from 'axios';
+import {apiAuthInstance} from '../../../api/instance';
 
 type RegisterData = {
   email: string;
@@ -7,8 +8,10 @@ type RegisterData = {
 };
 
 export function requestRegisterUser(registerData: RegisterData) {
-  return axios.post<any, AxiosResponse<any, any>, RegisterData>(
-    'https://prayer.herokuapp.com/auth/sign-up',
+  const apiAuth = apiAuthInstance();
+
+  return apiAuth.post<any, AxiosResponse<any, any>, RegisterData>(
+    '/sign-up',
     registerData,
   );
 }

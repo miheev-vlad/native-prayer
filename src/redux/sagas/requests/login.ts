@@ -1,4 +1,5 @@
-import axios, {AxiosResponse} from 'axios';
+import {AxiosResponse} from 'axios';
+import {apiAuthInstance} from '../../../api/instance';
 
 type LoginData = {
   email: string;
@@ -6,8 +7,10 @@ type LoginData = {
 };
 
 export function requestLoginUser(loginData: LoginData) {
-  return axios.post<any, AxiosResponse<any, any>, LoginData>(
-    'https://prayer.herokuapp.com/auth/sign-in',
+  const apiAuth = apiAuthInstance();
+
+  return apiAuth.post<any, AxiosResponse<any, any>, LoginData>(
+    '/sign-in',
     loginData,
   );
 }
