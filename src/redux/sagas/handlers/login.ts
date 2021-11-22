@@ -23,7 +23,6 @@ export function* handleLoginUser(
       yield put(setUser({...data}));
     }
   } catch (error) {
-    console.log(error);
     yield put(authFail('Some error happened...'));
   }
 }
