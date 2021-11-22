@@ -21,7 +21,6 @@ export function* handleRegisterUser(
     yield put(setUser({...data}));
     yield put(setColumns({...data}));
   } catch (error) {
-    console.log(error);
     yield put(authFail('Some error happened...'));
   }
 }
