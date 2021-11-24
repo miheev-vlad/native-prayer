@@ -1,5 +1,4 @@
 import React from 'react';
-import { Dimensions, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Comments } from '../components/Prayer/Comments';
 import { Members } from '../components/Prayer/Members';
