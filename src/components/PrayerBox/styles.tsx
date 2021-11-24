@@ -2,14 +2,20 @@ import styled from 'styled-components/native';
 import { Colors } from '../../styles/Colors';
 import { SCREEN_WIDTH } from './PrayerBox';
 
+export const StyledContainerWrapp = styled.View`
+  display: flex;
+  flex-direction: row;
+  width: ${SCREEN_WIDTH}px;
+  background-color: ${Colors.white};
+  justify-content: center;
+`;
+
 export const StyledContainer = styled.View`
   display: flex;
   flex-direction: row;
   height: 66px;
-  width: ${SCREEN_WIDTH}px;
-  background-color: ${Colors.white};
+  width: ${SCREEN_WIDTH - 30}px;
   justify-content: space-between;
-  padding: 0 15px;
   align-items: center;
   border-bottom-width: 1px;
   border-bottom-color: ${Colors.mercury};

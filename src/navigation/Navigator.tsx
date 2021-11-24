@@ -62,6 +62,12 @@ const TabStack = () => {
           borderBottomColor: Colors.moonstoneBlue,
           borderBottomWidth: 2,
         },
+        tabBarStyle: {
+          shadowColor: 'transparent',
+          shadowRadius: 0,
+          borderBottomWidth: 1,
+          borderBottomColor: Colors.mercury,
+        },
       }}>
       <Tab.Screen
         name="MyPrayers"
@@ -103,6 +109,10 @@ export const Navigator: React.FC = () => {
                 fontFamily: 'SFUIText-Bold',
               },
               headerTitleAlign: 'center',
+              headerStyle: {
+                borderBottomWidth: 1,
+                borderBottomColor: Colors.mercury,
+              },
               headerRight: () => (
                 <IconWrapp onPress={() => Alert.alert('Adding column')}>
                   <SmallAddSvgIcon />
@@ -120,6 +130,10 @@ export const Navigator: React.FC = () => {
                 fontSize: 17,
                 lineHeight: 20,
                 fontFamily: 'SFUIText-Bold',
+              },
+              headerStyle: {
+                shadowColor: 'transparent',
+                shadowRadius: 0,
               },
               headerRight: () => (
                 <IconWrapp onPress={() => Alert.alert('This is a settings')}>

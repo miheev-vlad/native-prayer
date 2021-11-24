@@ -78,6 +78,7 @@ export const MyPrayersScreen: React.FC = () => {
             .filter((prayer) => prayer.checked === true)
             .map((prayer, index) => (
               <PrayerBox
+                index={index}
                 data={prayer}
                 handleDelete={() => Alert.alert('Deleted...')}
                 key={index}

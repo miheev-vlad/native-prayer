@@ -22,6 +22,7 @@ import {
   StateIvonContainer,
   PrayerTextContainer,
   CheckBoxContainer,
+  StyledContainerWrapp,
 } from './styles';
 import { CheckedSvgIcon } from '../../../assets/icons/CheckedSvgIcon';
 import { UnCheckedSvgIcon } from '../../../assets/icons/UnCheckedSvgIcon';
@@ -34,6 +35,7 @@ type PrayerBoxProp = StackNavigationProp<MainStackParamList, 'Detail'>;
 type PrayerBoxType = {
   data: IPrayer;
   handleDelete(): void;
+  index?: number;
 };
 
 export const PrayerBox: React.FC<PrayerBoxType> = (props) => {
@@ -53,61 +55,70 @@ export const PrayerBox: React.FC<PrayerBoxType> = (props) => {
   return (
     <Swipeable renderRightActions={rightSwipe}>
       <TouchableOpacity onPress={() => navigate.navigate('Detail')}>
-        <StyledContainer>
-          <StyledGroupContainer>
-            <StateIvonContainer>
-              <StateSvgIcon
-                color={
-                  props.data.id === 1
-                    ? Colors.roseVale
-                    : props.data.id === 2
-                    ? Colors.moonstoneBlue
-                    : Colors.rodeoDust
-                }
-              />
-            </StateIvonContainer>
-            <CheckBoxContainer>
-              <CheckBox
-                onPress={() => setToggleCheckBox(!toggleCheckBox)}
-                checkedIcon={<CheckedSvgIcon />}
-                uncheckedIcon={<UnCheckedSvgIcon />}
-                checked={toggleCheckBox}
-              />
-            </CheckBoxContainer>
-            <PrayerTextContainer>
-              <StyledPrayerText
-                style={
-                  toggleCheckBox && { textDecorationLine: 'line-through' }
-                }>
-                {PrayerTextHelper.getSlicePrayerText(props.data.title)}
-              </StyledPrayerText>
-            </PrayerTextContainer>
-          </StyledGroupContainer>
-          <StyledGroupContainer>
-            <TouchableOpacity
-              onPress={() => Alert.alert('UserSvgIcon')}
-              style={{ marginRight: 20 }}>
-              <IvonContainer>
-                <View>
-                  <UserSvgIcon />
-                </View>
-                <View>
-                  <UserData>3</UserData>
-                </View>
-              </IvonContainer>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => Alert.alert('PrayerLineSvgIcon')}>
-              <IvonContainer>
-                <View>
-                  <PrayerLineSvgIcon />
-                </View>
-                <View>
-                  <LineData>123</LineData>
-                </View>
-              </IvonContainer>
-            </TouchableOpacity>
-          </StyledGroupContainer>
-        </StyledContainer>
+        <StyledContainerWrapp>
+          <StyledContainer
+            style={
+              props.index === 0 && {
+                borderTopColor: Colors.mercury,
+                borderTopWidth: 1,
+              }
+            }>
+            <StyledGroupContainer>
+              <StateIvonContainer>
+                <StateSvgIcon
+                  color={
+                    props.data.id === 1
+                      ? Colors.roseVale
+                      : props.data.id === 2
+                      ? Colors.moonstoneBlue
+                      : Colors.rodeoDust
+                  }
+                />
+              </StateIvonContainer>
+              <CheckBoxContainer>
+                <CheckBox
+                  onPress={() => setToggleCheckBox(!toggleCheckBox)}
+                  checkedIcon={<CheckedSvgIcon />}
+                  uncheckedIcon={<UnCheckedSvgIcon />}
+                  checked={toggleCheckBox}
+                />
+              </CheckBoxContainer>
+              <PrayerTextContainer>
+                <StyledPrayerText
+                  style={
+                    toggleCheckBox && { textDecorationLine: 'line-through' }
+                  }>
+                  {PrayerTextHelper.getSlicePrayerText(props.data.title)}
+                </StyledPrayerText>
+              </PrayerTextContainer>
+            </StyledGroupContainer>
+            <StyledGroupContainer>
+              <TouchableOpacity
+                onPress={() => Alert.alert('UserSvgIcon')}
+                style={{ marginRight: 20 }}>
+                <IvonContainer>
+                  <View>
+                    <UserSvgIcon />
+                  </View>
+                  <View>
+                    <UserData>3</UserData>
+                  </View>
+                </IvonContainer>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => Alert.alert('PrayerLineSvgIcon')}>
+                <IvonContainer>
+                  <View>
+                    <PrayerLineSvgIcon />
+                  </View>
+                  <View>
+                    <LineData>123</LineData>
+                  </View>
+                </IvonContainer>
+              </TouchableOpacity>
+            </StyledGroupContainer>
+          </StyledContainer>
+        </StyledContainerWrapp>
       </TouchableOpacity>
     </Swipeable>
   );

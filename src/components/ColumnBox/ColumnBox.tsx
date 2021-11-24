@@ -4,7 +4,7 @@ import React from 'react';
 import { MainStackParamList } from '../../navigation/Navigator';
 import { StyledText, StyledTouch } from './styles';
 
-type ColumnBoxType = {
+export type ColumnBoxType = {
   title: string;
   id: number;
 };
@@ -16,7 +16,7 @@ export const ColumnBox: React.FC<ColumnBoxType> = ({ title, id }) => {
   return (
     <StyledTouch
       onPress={() =>
-        navigation.navigate('Column', {
+        navigation.navigate<'Column'>('Column', {
           id,
           title,
         })
