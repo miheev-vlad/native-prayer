@@ -1,1 +1,1 @@
-export {LinkText} from './LinkText';
+export { LinkText } from './LinkText';

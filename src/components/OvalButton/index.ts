@@ -1,1 +1,1 @@
-export {OvalButton} from './OvalButton';
+export { OvalButton } from './OvalButton';

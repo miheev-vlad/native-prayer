@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Colors} from '../../styles/Colors';
+import { Colors } from '../../styles/Colors';
 
 export const ErrorTextWrapp = styled.View`
   width: 100%;

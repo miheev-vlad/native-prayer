@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IUserState {
   id: number;
@@ -30,6 +30,6 @@ const userSlice = createSlice({
   },
 });
 
-export const {setUser} = userSlice.actions;
+export const { setUser } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IColumnsState {
   columns: IColumn[];
@@ -15,7 +15,12 @@ export interface ResponsePayload {
 }
 
 const initialState: IColumnsState = {
-  columns: [],
+  columns: [
+    { description: '', id: 2682, title: 'BACKLOG' },
+    { description: '', id: 2683, title: 'TODO' },
+    { description: '', id: 2684, title: 'IN PROGRESS' },
+    { description: '', id: 2685, title: 'DONE' },
+  ],
 };
 
 const columnSlice = createSlice({
@@ -28,6 +33,6 @@ const columnSlice = createSlice({
   },
 });
 
-export const {setColumns} = columnSlice.actions;
+export const { setColumns } = columnSlice.actions;
 
 export default columnSlice.reducer;

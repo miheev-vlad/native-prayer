@@ -1,3 +1,9 @@
-import {login, register, setAuth, authFail, cleareAuthError} from './authSlice';
+import {
+  login,
+  register,
+  setAuth,
+  authFail,
+  cleareAuthError,
+} from './authSlice';
 
-export {login, register, setAuth, authFail, cleareAuthError};
+export { login, register, setAuth, authFail, cleareAuthError };

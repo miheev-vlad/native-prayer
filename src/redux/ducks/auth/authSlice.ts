@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IAuthState {
   token: string;
@@ -47,13 +47,13 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    cleareAuthError: state => {
+    cleareAuthError: (state) => {
       state.error = undefined;
     },
   },
 });
 
-export const {login, register, setAuth, authFail, cleareAuthError} =
+export const { login, register, setAuth, authFail, cleareAuthError } =
   authSlice.actions;
 
 export default authSlice.reducer;

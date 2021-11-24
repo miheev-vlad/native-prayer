@@ -1,20 +1,20 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/core';
-import {StackNavigationProp} from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
 import styled from 'styled-components/native';
 import validator from 'validator';
-import {Field, Form} from 'react-final-form';
+import { Field, Form } from 'react-final-form';
 
-import {AuthStackParamList} from '../navigation/navigators/AuthStackNavigator';
-import {Heading} from '../components/Heading';
-import {Input} from '../components/Input';
-import {LinkText} from '../components/LinkText';
-import {OvalButton} from '../components/OvalButton';
-import {ScreensWrapp} from '../components/ScreensWrapp';
-import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../redux/configureStore';
-import {cleareAuthError, register} from '../redux/ducks/auth/authSlice';
-import {ErrorMessage} from '../components/ErrorMessage';
+import { AuthStackParamList } from '../navigation/navigators/AuthStackNavigator';
+import { Heading } from '../components/Heading';
+import { Input } from '../components/Input';
+import { LinkText } from '../components/LinkText';
+import { OvalButton } from '../components/OvalButton';
+import { ScreensWrapp } from '../components/ScreensWrapp';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../redux/configureStore';
+import { cleareAuthError, register } from '../redux/ducks/auth/authSlice';
+import { ErrorMessage } from '../components/ErrorMessage';
 
 export const FormWrapp = styled.View`
   display: flex;
@@ -50,7 +50,7 @@ export const RegisterScreen: React.FC = () => {
             }),
           );
         }}
-        render={({form}) => (
+        render={({ form }) => (
           <FormWrapp>
             <Field<string>
               name="name"

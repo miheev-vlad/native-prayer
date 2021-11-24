@@ -1,1 +1,1 @@
-export {ScreensWrapp} from './ScreensWrapp';
+export { ScreensWrapp } from './ScreensWrapp';
