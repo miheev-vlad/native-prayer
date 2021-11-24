@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Colors} from '../../styles/Colors';
+import { Colors } from '../../styles/Colors';
 
 export const StyledText = styled.Text`
   font-size: 17px;
@@ -7,4 +7,5 @@ export const StyledText = styled.Text`
   color: ${Colors.liver};
   font-family: SFUIText-Bold;
   margin-bottom: 37px;
+  margin-top: 25px;
 `;

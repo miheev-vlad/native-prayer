@@ -1,3 +1,3 @@
-import {setUser} from './userSlice';
+import { setUser } from './userSlice';
 
-export {setUser};
+export { setUser };

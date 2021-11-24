@@ -4,10 +4,10 @@ import {
   TextProps,
   TouchableOpacityProps,
 } from 'react-native';
-import {useSelector} from 'react-redux';
-import {RootState} from '../../redux/configureStore';
-import {Colors} from '../../styles/Colors';
-import {StyledText, StyledTouchOpacity} from './styles';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/configureStore';
+import { Colors } from '../../styles/Colors';
+import { StyledText, StyledTouchOpacity } from './styles';
 
 export const OvalButton: React.FC<TouchableOpacityProps & TextProps> = ({
   children,

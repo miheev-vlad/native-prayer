@@ -1,5 +1,5 @@
-import {AxiosResponse} from 'axios';
-import {apiAuthInstance} from '../../../api/instance';
+import { AxiosResponse } from 'axios';
+import { apiAuthInstance } from '../../../api/instance';
 
 type RegisterData = {
   email: string;

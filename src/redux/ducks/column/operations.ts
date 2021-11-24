@@ -1,3 +1,3 @@
-import {setColumns} from './columnSlice';
+import { setColumns } from './columnSlice';
 
-export {setColumns};
+export { setColumns };

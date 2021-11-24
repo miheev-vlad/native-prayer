@@ -1,0 +1,1 @@
+export { PrayerTitle } from './PrayerTitle';

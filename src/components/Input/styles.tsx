@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {Colors} from '../../styles/Colors';
+import { Colors } from '../../styles/Colors';
 
 export const InputWrapp = styled.View`
   display: flex;
@@ -9,7 +9,7 @@ export const InputWrapp = styled.View`
 `;
 
 export const StyledTextInput = styled.TextInput.attrs(
-  (props: {error: boolean}) => props,
+  (props: { error: boolean }) => props,
 )`
   width: 345px;
   height: 50px;
@@ -20,7 +20,7 @@ export const StyledTextInput = styled.TextInput.attrs(
   font-family: SFUIText-Regular;
   line-height: 20px;
   color: ${Colors.liver};
-  border-color: ${props => (props.error ? Colors.roseVale : Colors.mercury)};
+  border-color: ${(props) => (props.error ? Colors.roseVale : Colors.mercury)};
 `;
 
 export const ErrorText = styled.Text`
