@@ -21,7 +21,7 @@
     "final-form": "^4.20.4",
     "react": "17.0.2",
     "react-final-form": "^6.5.7",
-    "react-native": "^0.66.2",
+    "react-native": "0.66.3",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-pager-view": "^5.4.9",
@@ -37,23 +37,16 @@
   "devDependencies": {
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.23",
-    "@types/react-native": "^0.65.0",
+    "@types/react-native": "^0.66.4",
     "@types/react-test-renderer": "^17.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
     "babel-jest": "^26.6.3",
-    "eslint": "^8.3.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.27.1",
-    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint": "^7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
-    "prettier": "^2.4.1",
     "react-test-renderer": "17.0.2",
-    "typescript": "^3.8.3"
+    "typescript": "^4.4.4"
   },
   "resolutions": {
     "@types/react": "^17"
