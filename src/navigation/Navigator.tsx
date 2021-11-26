@@ -157,6 +157,8 @@ export const Navigator: React.FC = () => {
               headerTintColor: Colors.white,
               headerStyle: {
                 backgroundColor: Colors.rodeoDust,
+                shadowColor: 'transparent',
+                shadowRadius: 0,
               },
             }}
           />
