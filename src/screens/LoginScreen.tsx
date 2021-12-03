@@ -6,15 +6,17 @@ import validator from 'validator';
 import { Field, Form } from 'react-final-form';
 
 import { AuthStackParamList } from '../navigation/navigators/AuthStackNavigator';
-import { Heading } from '../components/Heading';
-import { Input } from '../components/Input';
-import { LinkText } from '../components/LinkText';
 import { useDispatch, useSelector } from 'react-redux';
 import { cleareAuthError, login } from '../redux/ducks/auth/authSlice';
 import { RootState } from '../redux/configureStore';
-import { ErrorMessage } from '../components/ErrorMessage';
-import { ScreensWrapper } from '../components/ScreensWrapper';
-import { Button } from '../components/Button';
+import { ScreensWrapper } from '../components/containers';
+import {
+  Button,
+  ErrorMessage,
+  Heading,
+  Input,
+  LinkText,
+} from '../components/ui';
 
 export interface IValues {
   email: string;

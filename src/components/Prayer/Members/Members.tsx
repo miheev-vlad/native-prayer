@@ -15,7 +15,7 @@ export interface IMember {
   avatar: string;
 }
 
-export const MembersData: IMember[] = [
+const MembersData: IMember[] = [
   {
     id: 1,
     name: 'kris2000',
@@ -78,3 +78,5 @@ export const Members: React.FC = () => {
     </MembersContainer>
   );
 };
+
+export default Members;

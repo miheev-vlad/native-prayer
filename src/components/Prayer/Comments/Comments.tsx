@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { CommentSvgIcon } from '../../../../assets/icons/CommentSvgIcon';
 import { addComment } from '../../../redux/ducks/prayer/prayerSlice';
 import { Colors } from '../../../styles/Colors';
-import { AddCommentInput } from '../../AddCommentInput';
-import { CommentCard } from './CommentCard';
+import { AddCommentInput } from '../../ui';
+import { CommentCard } from './components';
 import {
   CommentsWrapper,
   FormWrapper,
@@ -25,7 +25,7 @@ type CommentsProps = {
   token: string;
 };
 
-export const Comments: React.FC<CommentsProps> = ({
+const Comments: React.FC<CommentsProps> = ({
   id,
   commentsIds,
   loading,
@@ -77,3 +77,5 @@ export const Comments: React.FC<CommentsProps> = ({
     </CommentsWrapper>
   );
 };
+
+export default Comments;

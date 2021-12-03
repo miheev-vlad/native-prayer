@@ -12,7 +12,7 @@ export type ColumnBoxType = {
 
 type MyDeskScreenProp = StackNavigationProp<MainStackParamList, 'MyDesk'>;
 
-export const ColumnBox: React.FC<ColumnBoxType> = ({ item }) => {
+const ColumnBox: React.FC<ColumnBoxType> = ({ item }) => {
   const navigation = useNavigation<MyDeskScreenProp>();
   const column = useSelector(
     (state: RootState) => state.columns.columnObjects[item],
@@ -30,3 +30,5 @@ export const ColumnBox: React.FC<ColumnBoxType> = ({ item }) => {
     </StyledTouch>
   );
 };
+
+export default ColumnBox;

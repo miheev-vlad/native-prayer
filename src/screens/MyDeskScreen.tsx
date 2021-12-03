@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
 import { ActivityIndicator, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { ColumnBox } from '../components/ColumnBox';
-import { ModalWindow } from '../components/ModalWindow';
-import { ScreensWrapper } from '../components/ScreensWrapper';
 import { RootState } from '../redux/configureStore';
 import {
   cleareCurrentColumn,
   getColumns,
 } from '../redux/ducks/column/columnSlice';
 import { Colors } from '../styles/Colors';
+import { ColumnBox, ModalWindow } from '../components';
+import { ScreensWrapper } from '../components/containers';
 
 export const MyDeskScreen: React.FC = () => {
   const token = useSelector((state: RootState) => state.auth.token);

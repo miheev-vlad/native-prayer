@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { useSelector } from 'react-redux';
-import { PrayerBox } from '../components/PrayerBox';
 import { RootState } from '../redux/configureStore';
 import { Text } from 'react-native';
-import { Button } from '../components/Button';
-import { ScreensWrapper } from '../components/ScreensWrapper';
+import { PrayerBox } from '../components/Prayer';
+import { ScreensWrapper } from '../components/containers';
+import { Button } from '../components/ui';
 
 export const SubscribedScreen: React.FC = () => {
   const [toggle, setToggle] = useState(false);

@@ -1,1 +1,1 @@
-export { ColumnBox } from './ColumnBox';
+export { default as ColumnBox } from './ColumnBox';

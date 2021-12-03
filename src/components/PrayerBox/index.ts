@@ -1,1 +1,0 @@
-export { PrayerBox } from './PrayerBox';

@@ -1,1 +1,1 @@
-export { PrayerData } from './PrayerData';
+export { default as PrayerData } from './PrayerData';
