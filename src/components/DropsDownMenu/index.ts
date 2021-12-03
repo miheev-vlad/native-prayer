@@ -1,1 +1,1 @@
-export { DropsDownMenu } from './DropsDownMenu';
+export { default as DropsDownMenu } from './DropsDownMenu';

@@ -11,7 +11,7 @@ import {
   TableContainer,
 } from './styles';
 
-export const Table: React.FC = () => {
+const Table: React.FC = () => {
   return (
     <TableContainer>
       <StyledRowTop>
@@ -38,3 +38,5 @@ export const Table: React.FC = () => {
     </TableContainer>
   );
 };
+
+export default Table;

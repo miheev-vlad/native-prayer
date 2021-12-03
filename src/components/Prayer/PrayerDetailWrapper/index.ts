@@ -1,1 +1,1 @@
-export { PrayerDetailWrapper } from './PrayerDetailWrapper';
+export { default as PrayerDetailWrapper } from './PrayerDetailWrapper';

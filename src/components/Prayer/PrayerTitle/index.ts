@@ -1,1 +1,1 @@
-export { PrayerTitle } from './PrayerTitle';
+export { default as PrayerTitle } from './PrayerTitle';

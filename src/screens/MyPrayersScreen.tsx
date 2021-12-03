@@ -5,18 +5,16 @@ import { ActivityIndicator, ScrollView, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/native';
 import { BigAddSvgIcon } from '../../assets/icons/BigAddSvgIcon';
-import { AddPrayerInput } from '../components/AddPrayerInput';
-import { PrayerBox } from '../components/PrayerBox/PrayerBox';
 import { RootState } from '../redux/configureStore';
 import { createPrayer, getColumnById } from '../redux/ducks/column/columnSlice';
 import { MainStackParamList } from '../navigation/Navigator';
-import { ModalWindow } from '../components/ModalWindow';
 import { getAllPrayers } from '../redux/ducks/prayer/prayerSlice';
 import { Colors } from '../styles/Colors';
 import { prayerSelector } from '../redux/ducks/prayer';
-import { DropsDownMenu } from '../components/DropsDownMenu';
-import { ScreensWrapper } from '../components/ScreensWrapper';
-import { Button } from '../components/Button';
+import { DropsDownMenu, ModalWindow } from '../components';
+import { PrayerBox } from '../components/Prayer';
+import { ScreensWrapper } from '../components/containers';
+import { AddPrayerInput, Button } from '../components/ui';
 
 export interface IValues {
   prayer: string;

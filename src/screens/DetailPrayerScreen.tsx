@@ -3,12 +3,14 @@ import React, { useEffect } from 'react';
 import { ActivityIndicator } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
-import { Comments } from '../components/Prayer/Comments';
-import { Members } from '../components/Prayer/Members';
-import { PrayerData } from '../components/Prayer/PrayerData';
-import { PrayerDetailWrapper } from '../components/Prayer/PrayerDetailWrapper';
-import { PrayerTitle } from '../components/Prayer/PrayerTitle';
-import { Table } from '../components/Prayer/Table';
+import {
+  Comments,
+  Members,
+  PrayerData,
+  PrayerDetailWrapper,
+  PrayerTitle,
+  Table,
+} from '../components/Prayer';
 import { MainStackParamList } from '../navigation/Navigator';
 import { RootState } from '../redux/configureStore';
 import { getAllComments } from '../redux/ducks/comments/commentsSlice';

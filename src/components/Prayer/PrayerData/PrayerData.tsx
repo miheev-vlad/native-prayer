@@ -3,7 +3,7 @@ import { StateSvgIcon } from '../../../../assets/icons/StateSvgIcon';
 import { Colors } from '../../../styles/Colors';
 import { StyledContainer, StyledText } from './styles';
 
-export const PrayerData: React.FC = ({ children }) => {
+const PrayerData: React.FC = ({ children }) => {
   return (
     <StyledContainer>
       <StateSvgIcon color={Colors.roseVale} />
@@ -11,3 +11,5 @@ export const PrayerData: React.FC = ({ children }) => {
     </StyledContainer>
   );
 };
+
+export default PrayerData;

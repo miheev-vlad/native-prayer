@@ -24,7 +24,7 @@ export interface IValues {
   description?: string;
 }
 
-export const DropsDownMenu = ({ id, isShowMenu }: any) => {
+const DropsDownMenu = ({ id, isShowMenu }: any) => {
   const dispatch = useDispatch();
   const token = useSelector((state: RootState) => state.auth.token);
   const navigation = useNavigation<MyDeskScreenProp>();
@@ -83,3 +83,5 @@ export const DropsDownMenu = ({ id, isShowMenu }: any) => {
     </Modal>
   );
 };
+
+export default DropsDownMenu;

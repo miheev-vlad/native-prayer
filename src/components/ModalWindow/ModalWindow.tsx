@@ -11,8 +11,7 @@ import {
 } from '../../redux/ducks/column/columnSlice';
 import { toggleModal } from '../../redux/ducks/modal/modalSlice';
 import { Colors } from '../../styles/Colors';
-import { Button } from '../Button';
-import { Input } from '../Input';
+import { Button, Input } from '../ui';
 import {
   CloseBtnContainer,
   CloseBtnWrapper,
@@ -26,7 +25,7 @@ export interface IValues {
   description?: string;
 }
 
-export const ModalWindow = ({ isUpdate, id }: any) => {
+const ModalWindow = ({ isUpdate, id }: any) => {
   const dispatch = useDispatch();
   const isShowModal = useSelector(
     (state: RootState) => state.modal.isShowModal,
@@ -112,3 +111,5 @@ export const ModalWindow = ({ isUpdate, id }: any) => {
     </Modal>
   );
 };
+
+export default ModalWindow;
