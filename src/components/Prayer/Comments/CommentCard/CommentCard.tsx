@@ -4,7 +4,7 @@ import { ActivityIndicator, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { RootState } from '../../../../redux/configureStore';
-import { putComment } from '../../../../redux/ducks/coments/commentsSlice';
+import { putComment } from '../../../../redux/ducks/comments/commentsSlice';
 import { AddCommentInput } from '../../../AddCommentInput';
 import { DotOptionsMenu } from '../DotOptionsMenu';
 import {
@@ -16,7 +16,7 @@ import {
   CommentNameContainer,
   CommentText,
   FormContainer,
-  FormWrapp,
+  FormWrapper,
   IconContainerUnUpdate,
   IconContainerUpdate,
   StyledName,
@@ -38,7 +38,7 @@ export const CommentCard: React.FC<CommentCardProps> = ({ item, index }) => {
   const dispatch = useDispatch();
   const token = useSelector((state: RootState) => state.auth.token);
   const userName = useSelector(nameSelector());
-  const updateloading = useSelector(
+  const updateLoading = useSelector(
     (state: RootState) => state.comments.updateloading,
   );
   const updateId = useSelector((state: RootState) => state.comments.updateId);
@@ -67,7 +67,7 @@ export const CommentCard: React.FC<CommentCardProps> = ({ item, index }) => {
           <StyledName>{userName}</StyledName>
           <CommentDate>{moment(comment.created).fromNow()}</CommentDate>
         </CommentNameContainer>
-        {updateloading && updateId === item ? (
+        {updateLoading && updateId === item ? (
           <ActivityIndicator size="small" color={Colors.liver} />
         ) : isShowInput ? (
           <Form
@@ -90,7 +90,7 @@ export const CommentCard: React.FC<CommentCardProps> = ({ item, index }) => {
               body: comment.body,
             }}
             render={({ form }) => (
-              <FormWrapp>
+              <FormWrapper>
                 <FormContainer>
                   <Field<string>
                     name="body"
@@ -107,7 +107,7 @@ export const CommentCard: React.FC<CommentCardProps> = ({ item, index }) => {
                     <BtnCloseText>X</BtnCloseText>
                   </IconContainerUnUpdate>
                 </FormContainer>
-              </FormWrapp>
+              </FormWrapper>
             )}
           />
         ) : (

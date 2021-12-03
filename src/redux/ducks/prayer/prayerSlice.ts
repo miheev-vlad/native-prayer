@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AuthParamsType } from '../../../api/instance';
-import { ResponseComentEntitiesPayload } from '../coments/commentsSlice';
+import { ResponseCommentEntitiesPayload } from '../comments/commentsSlice';
 
 export interface IPrayerState {
   loading: boolean;
@@ -47,7 +47,7 @@ export interface ResponsePrayerEntitiesPayload {
   result: number;
 }
 
-export interface RequestUpdaePrayerPayload {
+export interface RequestUpdatePrayerPayload {
   id: number;
   title: string;
   description: string;
@@ -108,7 +108,7 @@ const prayerSlice = createSlice({
     },
     upDatePrayer: (
       state,
-      action: PayloadAction<RequestUpdaePrayerPayload & RequestAuthPayload>,
+      action: PayloadAction<RequestUpdatePrayerPayload & RequestAuthPayload>,
     ) => {
       state.updateLoading = true;
       state.updatePrayerId = action.payload.id;
@@ -177,7 +177,7 @@ const prayerSlice = createSlice({
     },
     addCommentToCurrentPrayers: (
       state,
-      action: PayloadAction<ResponseComentEntitiesPayload>,
+      action: PayloadAction<ResponseCommentEntitiesPayload>,
     ) => {
       if (state.currentPrayer!.commentsIds) {
         state.currentPrayer!.commentsIds!.push(action.payload.result);

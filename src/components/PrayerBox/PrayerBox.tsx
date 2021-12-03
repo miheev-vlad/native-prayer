@@ -20,13 +20,13 @@ import {
   StyledContainer,
   StyledText,
   StyledPrayerText,
-  IvonContainer,
+  IconContainer,
   UserData,
   LineData,
-  StateIvonContainer,
+  StateIconContainer,
   PrayerTextContainer,
   CheckBoxContainer,
-  StyledContainerWrapp,
+  StyledContainerWrapper,
 } from './styles';
 import { CheckedSvgIcon } from '../../../assets/icons/CheckedSvgIcon';
 import { UnCheckedSvgIcon } from '../../../assets/icons/UnCheckedSvgIcon';
@@ -54,13 +54,13 @@ export const PrayerBox: React.FC<PrayerBoxType> = (props) => {
     (state: RootState) => state.prayers.updatePrayerId,
   );
 
-  const swipeableRef = useRef<Swipeable>(null);
+  const swippleRef = useRef<Swipeable>(null);
 
   const rightSwipe = () => {
     return (
       <TouchableOpacity
         onPress={() => {
-          swipeableRef!.current!.close();
+          swippleRef!.current!.close();
           setTimeout(() => {
             dispatch(removePrayer({ token, id: props.data.id }));
           });
@@ -74,14 +74,14 @@ export const PrayerBox: React.FC<PrayerBoxType> = (props) => {
   };
 
   return (
-    <Swipeable renderRightActions={rightSwipe} ref={swipeableRef}>
+    <Swipeable renderRightActions={rightSwipe} ref={swippleRef}>
       <TouchableOpacity
         onPress={() =>
           navigate.navigate('Detail', {
             id: props.data.id,
           })
         }>
-        <StyledContainerWrapp>
+        <StyledContainerWrapper>
           <StyledContainer
             style={
               props.index === 0 && {
@@ -90,7 +90,7 @@ export const PrayerBox: React.FC<PrayerBoxType> = (props) => {
               }
             }>
             <StyledGroupContainer>
-              <StateIvonContainer>
+              <StateIconContainer>
                 <StateSvgIcon
                   color={
                     props.data.id % 2 === 0
@@ -100,7 +100,7 @@ export const PrayerBox: React.FC<PrayerBoxType> = (props) => {
                       : Colors.rodeoDust
                   }
                 />
-              </StateIvonContainer>
+              </StateIconContainer>
               <CheckBoxContainer>
                 <CheckBox
                   onPress={() => {
@@ -144,29 +144,29 @@ export const PrayerBox: React.FC<PrayerBoxType> = (props) => {
               <TouchableOpacity
                 onPress={() => Alert.alert('UserSvgIcon')}
                 style={{ marginRight: 20 }}>
-                <IvonContainer>
+                <IconContainer>
                   <View>
                     <UserSvgIcon />
                   </View>
                   <View>
                     <UserData>3</UserData>
                   </View>
-                </IvonContainer>
+                </IconContainer>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => Alert.alert('PrayerLineSvgIcon')}>
-                <IvonContainer>
+                <IconContainer>
                   <View>
                     <PrayerLineSvgIcon />
                   </View>
                   <View>
                     <LineData>123</LineData>
                   </View>
-                </IvonContainer>
+                </IconContainer>
               </TouchableOpacity>
             </StyledGroupContainer>
           </StyledContainer>
-        </StyledContainerWrapp>
+        </StyledContainerWrapper>
       </TouchableOpacity>
     </Swipeable>
   );

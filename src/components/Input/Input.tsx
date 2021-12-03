@@ -1,7 +1,7 @@
 import React from 'react';
 import { FieldRenderProps } from 'react-final-form';
 import { TextInputProps } from 'react-native';
-import { ErrorText, InputWrapp, StyledTextInput } from './styles';
+import { ErrorText, InputWrapper, StyledTextInput } from './styles';
 
 type RenderInputProps = FieldRenderProps<string, HTMLElement> & TextInputProps;
 
@@ -18,13 +18,13 @@ export const Input: React.FC<RenderInputProps> = (
   };
 
   return (
-    <InputWrapp>
+    <InputWrapper>
       <StyledTextInput
         {...inputProps}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry ? true : false}
       />
       <ErrorText>{touched && (error || submitError) ? error : ''}</ErrorText>
-    </InputWrapp>
+    </InputWrapper>
   );
 };

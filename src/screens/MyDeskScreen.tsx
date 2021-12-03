@@ -3,7 +3,7 @@ import { ActivityIndicator, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { ColumnBox } from '../components/ColumnBox';
 import { ModalWindow } from '../components/ModalWindow';
-import { ScreensWrapp } from '../components/ScreensWrapp';
+import { ScreensWrapper } from '../components/ScreensWrapper';
 import { RootState } from '../redux/configureStore';
 import {
   cleareCurrentColumn,
@@ -27,14 +27,14 @@ export const MyDeskScreen: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <ScreensWrapp>
+      <ScreensWrapper>
         <ModalWindow />
         {loading && <ActivityIndicator size="large" color={Colors.starDust} />}
         {!loading &&
           columnItems.map((item: number, index: number) => (
             <ColumnBox key={index} item={item} />
           ))}
-      </ScreensWrapp>
+      </ScreensWrapper>
     </ScrollView>
   );
 };

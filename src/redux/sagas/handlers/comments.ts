@@ -9,7 +9,7 @@ import {
   setError,
   setLoading,
   updateComment,
-} from '../../ducks/coments/commentsSlice';
+} from '../../ducks/comments/commentsSlice';
 import {
   requestGetAllComments,
   requestRemoveComment,

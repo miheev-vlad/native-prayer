@@ -7,7 +7,12 @@ import { addComment } from '../../../redux/ducks/prayer/prayerSlice';
 import { Colors } from '../../../styles/Colors';
 import { AddCommentInput } from '../../AddCommentInput';
 import { CommentCard } from './CommentCard';
-import { CommentsWrapp, FormWrapp, IconContainer, StyledText } from './styles';
+import {
+  CommentsWrapper,
+  FormWrapper,
+  IconContainer,
+  StyledText,
+} from './styles';
 
 export interface IValues {
   body: string;
@@ -29,7 +34,7 @@ export const Comments: React.FC<CommentsProps> = ({
   const dispatch = useDispatch();
 
   return (
-    <CommentsWrapp>
+    <CommentsWrapper>
       <StyledText>Comments</StyledText>
       {!loading &&
         commentsIds.length > 0 &&
@@ -54,7 +59,7 @@ export const Comments: React.FC<CommentsProps> = ({
           form.resetFieldState('body');
         }}
         render={({ form }) => (
-          <FormWrapp>
+          <FormWrapper>
             <Field<string>
               name="body"
               placeholder="Add a comment..."
@@ -66,9 +71,9 @@ export const Comments: React.FC<CommentsProps> = ({
             <IconContainer onPress={form.submit}>
               <CommentSvgIcon />
             </IconContainer>
-          </FormWrapp>
+          </FormWrapper>
         )}
       />
-    </CommentsWrapp>
+    </CommentsWrapper>
   );
 };

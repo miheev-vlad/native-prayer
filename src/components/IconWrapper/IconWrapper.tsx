@@ -1,10 +1,13 @@
 import React from 'react';
 import { StyledTouch } from './styles';
 
-type IconWrappType = {
+type IconWrapperType = {
   onPress(): void;
 };
 
-export const IconWrapp: React.FC<IconWrappType> = ({ children, ...props }) => {
+export const IconWrapper: React.FC<IconWrapperType> = ({
+  children,
+  ...props
+}) => {
   return <StyledTouch {...props}>{children}</StyledTouch>;
 };

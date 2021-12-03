@@ -2,13 +2,13 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { call, put } from 'redux-saga/effects';
 import { normalize, schema } from 'normalizr';
 import { RequestAuthPayload } from '../../ducks/column/columnSlice';
-import { addComment } from '../../ducks/coments/commentsSlice';
+import { addComment } from '../../ducks/comments/commentsSlice';
 import {
   addCommentToCurrentPrayers,
   RequestAddCommentPayload,
   RequestGetPrayerByIdPayload,
   RequestRemovePrayerPayload,
-  RequestUpdaePrayerPayload,
+  RequestUpdatePrayerPayload,
   setCurrentPrayer,
   setError,
   setLoading,
@@ -47,7 +47,7 @@ export function* handleGetAllPrayers(
 }
 
 export function* handleUpdatePrayer(
-  action: PayloadAction<RequestUpdaePrayerPayload & RequestAuthPayload>,
+  action: PayloadAction<RequestUpdatePrayerPayload & RequestAuthPayload>,
 ): any {
   const { token, id, title, description, checked } = action.payload;
 

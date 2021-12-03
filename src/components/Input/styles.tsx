@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { Colors } from '../../styles/Colors';
 
-export const InputWrapp = styled.View`
+export const InputWrapper = styled.View`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

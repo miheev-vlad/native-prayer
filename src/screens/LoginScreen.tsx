@@ -9,18 +9,12 @@ import { AuthStackParamList } from '../navigation/navigators/AuthStackNavigator'
 import { Heading } from '../components/Heading';
 import { Input } from '../components/Input';
 import { LinkText } from '../components/LinkText';
-import { OvalButton } from '../components/OvalButton';
-import { ScreensWrapp } from '../components/ScreensWrapp';
 import { useDispatch, useSelector } from 'react-redux';
 import { cleareAuthError, login } from '../redux/ducks/auth/authSlice';
 import { RootState } from '../redux/configureStore';
 import { ErrorMessage } from '../components/ErrorMessage';
-
-export const FormWrapp = styled.View`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+import { ScreensWrapper } from '../components/ScreensWrapper';
+import { Button } from '../components/Button';
 
 export interface IValues {
   email: string;
@@ -36,7 +30,7 @@ export const LoginScreen: React.FC = () => {
   const error = useSelector((state: RootState) => state.auth.error);
 
   return (
-    <ScreensWrapp>
+    <ScreensWrapper>
       <Heading>Login</Heading>
       {error && !loading && <ErrorMessage>{error}</ErrorMessage>}
       <Form
@@ -49,7 +43,7 @@ export const LoginScreen: React.FC = () => {
           );
         }}
         render={({ form }) => (
-          <FormWrapp>
+          <FormWrapper>
             <Field<string>
               name="email"
               placeholder="Email"
@@ -65,7 +59,7 @@ export const LoginScreen: React.FC = () => {
               secureTextEntry
               validate={(v: string) => (v ? undefined : 'Password is Required')}
             />
-            <OvalButton onPress={form.submit}>Login</OvalButton>
+            <Button onPress={form.submit}>Login</Button>
             <LinkText
               onPress={() => {
                 dispatch(cleareAuthError());
@@ -76,9 +70,15 @@ export const LoginScreen: React.FC = () => {
               }}>
               Not registered yet...
             </LinkText>
-          </FormWrapp>
+          </FormWrapper>
         )}
       />
-    </ScreensWrapp>
+    </ScreensWrapper>
   );
 };
+
+export const FormWrapper = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;

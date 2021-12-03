@@ -13,7 +13,6 @@ import { Alert } from 'react-native';
 import { SettingsSvgIcon } from '../../assets/icons/SettingsSvgIcon';
 import { Colors } from '../styles/Colors';
 import { DetailPrayerScreen } from '../screens/DetailPrayerScreen';
-import { IconWrapp } from '../components/IconWrapp';
 import { SmallAddSvgIcon } from '../../assets/icons/SmallAddSvgIcon';
 import { PrayerLineDustSvgIcon } from '../../assets/icons/PrayerLineDustSvgIcon';
 import { toggleMenu, toggleModal } from '../redux/ducks/modal/modalSlice';
@@ -22,8 +21,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { BackSvgIcon } from '../../assets/icons/BackSvgIcon';
 import { cleareCurrentPrayer } from '../redux/ducks/prayer/prayerSlice';
 import { BackHomeSvgIcon } from '../../assets/icons/BackHomeSvgIcon';
+import { IconWrapper } from '../components/IconWrapper';
 
-export const StyledBageContainer = styled.View`
+export const StyledBagsContainer = styled.View`
   margin-top: 16px;
   margin-left: -54px;
   height: 16px;
@@ -35,7 +35,7 @@ export const StyledBageContainer = styled.View`
   justify-content: center;
 `;
 
-export const StyledBageData = styled.Text`
+export const StyledBagsData = styled.Text`
   color: ${Colors.white};
   font-size: 9px;
   line-height: 11px;
@@ -92,9 +92,9 @@ const TabStack = ({ route }: any) => {
         options={{
           title: 'Subscribed',
           tabBarBadge: () => (
-            <StyledBageContainer>
-              <StyledBageData>3</StyledBageData>
-            </StyledBageContainer>
+            <StyledBagsContainer>
+              <StyledBagsData>3</StyledBagsData>
+            </StyledBagsContainer>
           ),
         }}
       />
@@ -130,12 +130,12 @@ export const Navigator: React.FC = () => {
                 borderBottomColor: Colors.mercury,
               },
               headerRight: () => (
-                <IconWrapp
+                <IconWrapper
                   onPress={() => {
                     dispatch(toggleModal({ isShowModal: true }));
                   }}>
                   <SmallAddSvgIcon />
-                </IconWrapp>
+                </IconWrapper>
               ),
             }}
           />
@@ -155,12 +155,12 @@ export const Navigator: React.FC = () => {
                 shadowRadius: 0,
               },
               headerRight: () => (
-                <IconWrapp
+                <IconWrapper
                   onPress={() => {
                     dispatch(toggleMenu({ isShowMenu: true }));
                   }}>
                   <SettingsSvgIcon />
-                </IconWrapp>
+                </IconWrapper>
               ),
               headerLeft: () => (
                 <TouchableOpacity
@@ -182,10 +182,10 @@ export const Navigator: React.FC = () => {
             options={({ navigation }: any) => ({
               title: '',
               headerRight: () => (
-                <IconWrapp
+                <IconWrapper
                   onPress={() => Alert.alert('This is a PrayerLineSvgIcon')}>
                   <PrayerLineDustSvgIcon />
-                </IconWrapp>
+                </IconWrapper>
               ),
               headerLeft: () => (
                 <TouchableOpacity

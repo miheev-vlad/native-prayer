@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { SCREEN_WIDTH } from '../../../helpers/DimensionsHelper';
 import { Colors } from '../../../styles/Colors';
 
-export const CommentsWrapp = styled.View`
+export const CommentsWrapper = styled.View`
   width: ${SCREEN_WIDTH}px;
 `;
 
@@ -16,7 +16,7 @@ export const StyledText = styled.Text`
   margin-bottom: 15px;
 `;
 
-export const FormWrapp = styled.View`
+export const FormWrapper = styled.View`
   display: flex;
   flex-direction: column;
   align-items: center;

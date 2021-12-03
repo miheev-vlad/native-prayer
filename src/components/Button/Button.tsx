@@ -9,7 +9,7 @@ import { RootState } from '../../redux/configureStore';
 import { Colors } from '../../styles/Colors';
 import { StyledText, StyledTouchOpacity } from './styles';
 
-export const OvalButton: React.FC<TouchableOpacityProps & TextProps> = ({
+export const Button: React.FC<TouchableOpacityProps & TextProps> = ({
   children,
   onPress,
 }) => {

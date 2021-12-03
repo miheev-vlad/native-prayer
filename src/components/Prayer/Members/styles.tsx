@@ -7,7 +7,7 @@ export const MembersContainer = styled.View`
   margin-bottom: 30px;
 `;
 
-export const MemberItemWrapp = styled.View`
+export const MemberItemWrapper = styled.View`
   margin-left: 10px;
 `;
 

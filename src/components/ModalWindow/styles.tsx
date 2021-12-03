@@ -11,13 +11,13 @@ export const CloseBtnContainer = styled.TouchableOpacity`
   margin: 15px 15px 0 0;
 `;
 
-export const CloseBtnWrapp = styled.View`
+export const CloseBtnWrapper = styled.View`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 `;
-export const HeadingWrapp = styled.View`
+export const HeadingWrapper = styled.View`
   width: 100%;
   display: flex;
   flex-direction: row;

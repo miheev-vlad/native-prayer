@@ -9,8 +9,8 @@ import { removeColumn } from '../../redux/ducks/column/columnSlice';
 import { toggleMenu, toggleModal } from '../../redux/ducks/modal/modalSlice';
 import {
   ArrowStyle,
-  BackDropp,
-  BackDroppTouch,
+  BackDrops,
+  BackDropsTouch,
   ModalContainer,
   StyledMenu,
   StyledText,
@@ -24,7 +24,7 @@ export interface IValues {
   description?: string;
 }
 
-export const DroppDownMenu = ({ id, isShowMenu }: any) => {
+export const DropsDownMenu = ({ id, isShowMenu }: any) => {
   const dispatch = useDispatch();
   const token = useSelector((state: RootState) => state.auth.token);
   const navigation = useNavigation<MyDeskScreenProp>();
@@ -38,12 +38,12 @@ export const DroppDownMenu = ({ id, isShowMenu }: any) => {
         dispatch(toggleMenu({ isShowMenu: false }));
       }}>
       <React.Fragment>
-        <BackDropp>
-          <BackDroppTouch
+        <BackDrops>
+          <BackDropsTouch
             onPress={() => {
               dispatch(toggleMenu({ isShowMenu: false }));
-            }}></BackDroppTouch>
-        </BackDropp>
+            }}></BackDropsTouch>
+        </BackDrops>
         <ModalContainer>
           <StyledMenu
             style={{
