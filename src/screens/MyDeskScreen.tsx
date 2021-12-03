@@ -1,17 +1,40 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { ActivityIndicator, ScrollView } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import { ColumnBox } from '../components/ColumnBox';
+import { ModalWindow } from '../components/ModalWindow';
 import { ScreensWrapp } from '../components/ScreensWrapp';
 import { RootState } from '../redux/configureStore';
+import {
+  cleareCurrentColumn,
+  getColumns,
+} from '../redux/ducks/column/columnSlice';
+import { Colors } from '../styles/Colors';
 
 export const MyDeskScreen: React.FC = () => {
-  const columns = useSelector((state: RootState) => state.columns.columns);
+  const token = useSelector((state: RootState) => state.auth.token);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getColumns({ token }));
+    dispatch(cleareCurrentColumn());
+  }, [dispatch, token]);
+
+  const loading = useSelector((state: RootState) => state.columns.loading);
+  const columnItems = useSelector(
+    (state: RootState) => state.columns.columnIds,
+  );
 
   return (
-    <ScreensWrapp>
-      {columns.map((column, index) => (
-        <ColumnBox key={index} id={column.id} title={column.title} />
-      ))}
-    </ScreensWrapp>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ScreensWrapp>
+        <ModalWindow />
+        {loading && <ActivityIndicator size="large" color={Colors.starDust} />}
+        {!loading &&
+          columnItems.map((item: number, index: number) => (
+            <ColumnBox key={index} item={item} />
+          ))}
+      </ScreensWrapp>
+    </ScrollView>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
 import {
   PrayerDate,
   StyledColumnLeft,
@@ -11,8 +10,6 @@ import {
   StyledRowTop,
   TableContainer,
 } from './styles';
-
-export const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export const Table: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
+import { SCREEN_WIDTH } from '../../../helpers/DimensionsHelper';
 import { Colors } from '../../../styles/Colors';
-import { SCREEN_WIDTH } from './Table';
 
 export const TableContainer = styled.View`
   width: ${SCREEN_WIDTH}px;

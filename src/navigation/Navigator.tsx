@@ -1,8 +1,9 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { AuthStackNavigator } from './navigators/AuthStackNavigator';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/native';
+
 import { RootState } from '../redux/configureStore';
 import { MyDeskScreen } from '../screens/MyDeskScreen';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -15,6 +16,12 @@ import { DetailPrayerScreen } from '../screens/DetailPrayerScreen';
 import { IconWrapp } from '../components/IconWrapp';
 import { SmallAddSvgIcon } from '../../assets/icons/SmallAddSvgIcon';
 import { PrayerLineDustSvgIcon } from '../../assets/icons/PrayerLineDustSvgIcon';
+import { toggleMenu, toggleModal } from '../redux/ducks/modal/modalSlice';
+import { cleareCurrentColumn } from '../redux/ducks/column/columnSlice';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { BackSvgIcon } from '../../assets/icons/BackSvgIcon';
+import { cleareCurrentPrayer } from '../redux/ducks/prayer/prayerSlice';
+import { BackHomeSvgIcon } from '../../assets/icons/BackHomeSvgIcon';
 
 export const StyledBageContainer = styled.View`
   margin-top: 16px;
@@ -41,13 +48,17 @@ export type MainStackParamList = {
     id: number;
     title: string;
   };
-  Detail: undefined;
+  Detail: {
+    id: number;
+  };
 };
 
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
 
-const TabStack = () => {
+const TabStack = ({ route }: any) => {
+  const { id } = route.params;
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -73,6 +84,7 @@ const TabStack = () => {
         name="MyPrayers"
         component={MyPrayersScreen}
         options={{ title: 'My Prayers' }}
+        initialParams={{ id }}
       />
       <Tab.Screen
         name="Subscribed"
@@ -92,6 +104,10 @@ const TabStack = () => {
 
 export const Navigator: React.FC = () => {
   const isAuth = useSelector((state: RootState) => state.auth.token);
+  const currentColumn = useSelector(
+    (state: RootState) => state.columns.currentColumn,
+  );
+  const dispatch = useDispatch();
 
   return (
     <Stack.Navigator>
@@ -114,7 +130,10 @@ export const Navigator: React.FC = () => {
                 borderBottomColor: Colors.mercury,
               },
               headerRight: () => (
-                <IconWrapp onPress={() => Alert.alert('Adding column')}>
+                <IconWrapp
+                  onPress={() => {
+                    dispatch(toggleModal({ isShowModal: true }));
+                  }}>
                   <SmallAddSvgIcon />
                 </IconWrapp>
               ),
@@ -122,8 +141,8 @@ export const Navigator: React.FC = () => {
           />
           <Stack.Screen
             name="Column"
-            options={({ route }: any) => ({
-              title: route.params.title,
+            options={({ route, navigation }: any) => ({
+              title: currentColumn?.title || route.params.title,
               headerTitleAlign: 'center',
               headerTintColor: `${Colors.liver}`,
               headerTitleStyle: {
@@ -136,17 +155,31 @@ export const Navigator: React.FC = () => {
                 shadowRadius: 0,
               },
               headerRight: () => (
-                <IconWrapp onPress={() => Alert.alert('This is a settings')}>
+                <IconWrapp
+                  onPress={() => {
+                    dispatch(toggleMenu({ isShowMenu: true }));
+                  }}>
                   <SettingsSvgIcon />
                 </IconWrapp>
+              ),
+              headerLeft: () => (
+                <TouchableOpacity
+                  onPress={() => {
+                    dispatch(cleareCurrentColumn());
+                    navigation.navigate('MyDesk');
+                  }}
+                  style={{ marginLeft: 15 }}>
+                  <BackHomeSvgIcon />
+                </TouchableOpacity>
               ),
             })}>
             {TabStack}
           </Stack.Screen>
+
           <Stack.Screen
             name="Detail"
             component={DetailPrayerScreen}
-            options={{
+            options={({ navigation }: any) => ({
               title: '',
               headerRight: () => (
                 <IconWrapp
@@ -154,13 +187,23 @@ export const Navigator: React.FC = () => {
                   <PrayerLineDustSvgIcon />
                 </IconWrapp>
               ),
+              headerLeft: () => (
+                <TouchableOpacity
+                  onPress={() => {
+                    dispatch(cleareCurrentPrayer());
+                    navigation.goBack();
+                  }}
+                  style={{ marginLeft: 15 }}>
+                  <BackSvgIcon />
+                </TouchableOpacity>
+              ),
               headerTintColor: Colors.white,
               headerStyle: {
                 backgroundColor: Colors.rodeoDust,
                 shadowColor: 'transparent',
                 shadowRadius: 0,
               },
-            }}
+            })}
           />
         </>
       ) : (

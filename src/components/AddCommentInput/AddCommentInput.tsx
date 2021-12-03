@@ -1,9 +1,7 @@
 import React from 'react';
 import { FieldRenderProps } from 'react-final-form';
-import { Dimensions, TextInputProps } from 'react-native';
+import { TextInputProps } from 'react-native';
 import { ErrorText, InputWrapp, StyledTextInput } from './styles';
-
-export const SCREEN_WIDTH = Dimensions.get('window').width;
 
 type RenderInputProps = FieldRenderProps<string, HTMLElement> & TextInputProps;
 

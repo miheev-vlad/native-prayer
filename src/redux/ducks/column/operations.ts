@@ -1,3 +1,31 @@
-import { setColumns } from './columnSlice';
+import {
+  setColumns,
+  getColumns,
+  columnsError,
+  createColumn,
+  addColumn,
+  getColumnById,
+  setCurrentColumn,
+  removeColumn,
+  setLoading,
+  updateColumn,
+  createPrayer,
+  cleareCurrentColumn,
+  updateCurrentColumn,
+} from './columnSlice';
 
-export { setColumns };
+export {
+  setColumns,
+  getColumns,
+  columnsError,
+  createColumn,
+  addColumn,
+  getColumnById,
+  setCurrentColumn,
+  removeColumn,
+  setLoading,
+  updateColumn,
+  createPrayer,
+  cleareCurrentColumn,
+  updateCurrentColumn,
+};

@@ -1,3 +1,33 @@
-import { setPrayer } from './prayerSlice';
+import {
+  setPrayers,
+  getAllPrayers,
+  addPrayer,
+  upDatePrayer,
+  updatePrayersInStore,
+  removePrayer,
+  getPrayerById,
+  setCurrentPrayer,
+  addComment,
+  setError,
+  setLoading,
+  cleareCurrentPrayer,
+  updateCurrentPrayers,
+  addCommentToCurrentPrayers,
+} from './prayerSlice';
 
-export { setPrayer };
+export {
+  setPrayers,
+  getAllPrayers,
+  addPrayer,
+  upDatePrayer,
+  updatePrayersInStore,
+  removePrayer,
+  getPrayerById,
+  setCurrentPrayer,
+  addComment,
+  setError,
+  setLoading,
+  cleareCurrentPrayer,
+  updateCurrentPrayers,
+  addCommentToCurrentPrayers,
+};

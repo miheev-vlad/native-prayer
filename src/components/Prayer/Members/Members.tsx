@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+import { Alert, ScrollView, TouchableOpacity } from 'react-native';
 import { RoundAddSvgIcon } from '../../../../assets/icons/RoundAddSvgIcon';
 import {
   AddBtnContainer,
@@ -8,8 +8,6 @@ import {
   MembersContainer,
   StyledText,
 } from './styles';
-
-export const SCREEN_WIDTH = Dimensions.get('window').width;
 
 export interface IMember {
   id: number;

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
+import { SCREEN_WIDTH } from '../../helpers/DimensionsHelper';
 import { Colors } from '../../styles/Colors';
-import { SCREEN_WIDTH } from './AddCommentInput';
 
 export const InputWrapp = styled.View`
   display: flex;
@@ -18,7 +18,7 @@ export const StyledTextInput = styled.TextInput`
   font-size: 17px;
   font-family: SFUIText-Regular;
   line-height: 20px;
-  color: ${Colors.starDust};
+  color: ${Colors.liver};
 `;
 
 export const ErrorText = styled.Text`
