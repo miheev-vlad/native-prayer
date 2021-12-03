@@ -1,0 +1,1 @@
+export { PrayerDetailWrapper } from './PrayerDetailWrapper';

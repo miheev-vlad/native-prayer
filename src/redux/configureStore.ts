@@ -6,7 +6,7 @@ import userReducer from './ducks/user/userSlice';
 import columnsReducer from './ducks/column/columnSlice';
 import prayersReducer from './ducks/prayer/prayerSlice';
 import modalReducer from './ducks/modal/modalSlice';
-import commentsReducer from './ducks/coments/commentsSlice';
+import commentsReducer from './ducks/comments/commentsSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 

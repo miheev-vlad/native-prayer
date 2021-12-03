@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Comments } from '../components/Prayer/Comments';
 import { Members } from '../components/Prayer/Members';
 import { PrayerData } from '../components/Prayer/PrayerData';
-import { PrayerDetailWrapp } from '../components/Prayer/PrayerDetailWrapp';
+import { PrayerDetailWrapper } from '../components/Prayer/PrayerDetailWrapper';
 import { PrayerTitle } from '../components/Prayer/PrayerTitle';
 import { Table } from '../components/Prayer/Table';
 import { MainStackParamList } from '../navigation/Navigator';
 import { RootState } from '../redux/configureStore';
-import { getAllComments } from '../redux/ducks/coments/commentsSlice';
+import { getAllComments } from '../redux/ducks/comments/commentsSlice';
 import { getPrayerById } from '../redux/ducks/prayer/prayerSlice';
 import { Colors } from '../styles/Colors';
 
@@ -34,7 +34,7 @@ export const DetailPrayerScreen: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <PrayerDetailWrapp>
+      <PrayerDetailWrapper>
         <PrayerTitle>
           {currentPrayer ? (
             currentPrayer?.title
@@ -51,7 +51,7 @@ export const DetailPrayerScreen: React.FC = () => {
           loading={loading}
           token={token}
         />
-      </PrayerDetailWrapp>
+      </PrayerDetailWrapper>
     </ScrollView>
   );
 };

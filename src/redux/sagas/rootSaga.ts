@@ -36,7 +36,7 @@ import {
   getAllComments,
   putComment,
   removeComment,
-} from '../ducks/coments/commentsSlice';
+} from '../ducks/comments/commentsSlice';
 import {
   handleGetAllComments,
   handleRemoveComment,

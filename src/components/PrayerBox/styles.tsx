@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { SCREEN_WIDTH } from '../../helpers/DimensionsHelper';
 import { Colors } from '../../styles/Colors';
 
-export const StyledContainerWrapp = styled.View`
+export const StyledContainerWrapper = styled.View`
   display: flex;
   flex-direction: row;
   width: ${SCREEN_WIDTH}px;
@@ -48,7 +48,7 @@ export const StyledPrayerText = styled.Text`
   font-family: SFUIText-Regular;
 `;
 
-export const IvonContainer = styled.View`
+export const IconContainer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -70,7 +70,7 @@ export const LineData = styled.Text`
   margin-left: 6px;
 `;
 
-export const StateIvonContainer = styled.View`
+export const StateIconContainer = styled.View`
   padding-top: 15px;
 `;
 

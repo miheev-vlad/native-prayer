@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/configureStore';
-import { removeComment } from '../../../../redux/ducks/coments/commentsSlice';
+import { removeComment } from '../../../../redux/ducks/comments/commentsSlice';
 import { updateCurrentPrayers } from '../../../../redux/ducks/prayer/prayerSlice';
 import {
   CloseBtnContainer,

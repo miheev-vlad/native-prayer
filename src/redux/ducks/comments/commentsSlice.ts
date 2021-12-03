@@ -50,12 +50,12 @@ export interface RequestUpdateCommentPayload {
   body: string;
 }
 
-export interface ResponseComentEntitiesPayload {
+export interface ResponseCommentEntitiesPayload {
   entities: any;
   result: number;
 }
 
-export interface ResponseComentsPayload {
+export interface ResponseCommentsPayload {
   entities: any;
   result: number[];
 }
@@ -76,14 +76,14 @@ const commentsSlice = createSlice({
       state.loading = true;
       action.payload;
     },
-    setComments: (state, action: PayloadAction<ResponseComentsPayload>) => {
+    setComments: (state, action: PayloadAction<ResponseCommentsPayload>) => {
       state.loading = false;
       state.commentIds = action.payload.result;
       state.commentObjects = action.payload.entities.comments;
     },
     addComment: (
       state,
-      action: PayloadAction<ResponseComentEntitiesPayload>,
+      action: PayloadAction<ResponseCommentEntitiesPayload>,
     ) => {
       state.loading = false;
       state.commentIds.push(action.payload.result);
@@ -103,7 +103,7 @@ const commentsSlice = createSlice({
     },
     updateComment: (
       state,
-      action: PayloadAction<ResponseComentEntitiesPayload>,
+      action: PayloadAction<ResponseCommentEntitiesPayload>,
     ) => {
       state.updateloading = false;
       state.updateId = undefined;

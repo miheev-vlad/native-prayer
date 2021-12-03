@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { Colors } from '../../styles/Colors';
 
-export const ErrorTextWrapp = styled.View`
+export const ErrorTextWrapper = styled.View`
   width: 100%;
   margin-bottom: 15px;
 `;

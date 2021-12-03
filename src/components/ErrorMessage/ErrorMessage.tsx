@@ -1,11 +1,11 @@
 import React from 'react';
 import { TextProps } from 'react-native';
-import { ErrorTextWrapp, StyledErrorText } from './styles';
+import { ErrorTextWrapper, StyledErrorText } from './styles';
 
 export const ErrorMessage: React.FC<TextProps> = ({ children, ...props }) => {
   return (
-    <ErrorTextWrapp>
+    <ErrorTextWrapper>
       <StyledErrorText {...props}>{children}</StyledErrorText>
-    </ErrorTextWrapp>
+    </ErrorTextWrapper>
   );
 };

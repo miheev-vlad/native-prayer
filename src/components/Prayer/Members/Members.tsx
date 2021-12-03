@@ -4,7 +4,7 @@ import { RoundAddSvgIcon } from '../../../../assets/icons/RoundAddSvgIcon';
 import {
   AddBtnContainer,
   MemberItem,
-  MemberItemWrapp,
+  MemberItemWrapper,
   MembersContainer,
   StyledText,
 } from './styles';
@@ -18,7 +18,7 @@ export interface IMember {
 export const MembersData: IMember[] = [
   {
     id: 1,
-    name: 'kriss2000',
+    name: 'kris2000',
     avatar:
       'https://media.istockphoto.com/photos/portrait-of-happy-cheerful-woman-showing-peace-gesture-isolated-over-picture-id1286942214?b=1&k=20&m=1286942214&s=170667a&w=0&h=bQwbpgRAWuTxvgQmoNRKL92zrBeTjI72DtNqDvB1xVg=',
   },
@@ -57,7 +57,7 @@ export const Members: React.FC = () => {
         style={{ paddingTop: 12 }}
         showsHorizontalScrollIndicator={false}>
         {MembersData.map((item: IMember, index: number) => (
-          <MemberItemWrapp
+          <MemberItemWrapper
             key={item.id}
             style={index === 0 && { marginLeft: 15 }}>
             <TouchableOpacity>
@@ -67,13 +67,13 @@ export const Members: React.FC = () => {
                 }}
               />
             </TouchableOpacity>
-          </MemberItemWrapp>
+          </MemberItemWrapper>
         ))}
-        <MemberItemWrapp>
+        <MemberItemWrapper>
           <AddBtnContainer onPress={() => Alert.alert('Adding member')}>
             <RoundAddSvgIcon />
           </AddBtnContainer>
-        </MemberItemWrapp>
+        </MemberItemWrapper>
       </ScrollView>
     </MembersContainer>
   );

@@ -2,15 +2,11 @@ import React, { useState } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 import { useSelector } from 'react-redux';
-import { OvalButton } from '../components/OvalButton';
 import { PrayerBox } from '../components/PrayerBox';
-import { ScreensWrapp } from '../components/ScreensWrapp';
 import { RootState } from '../redux/configureStore';
 import { Text } from 'react-native';
-
-export const OvalBtnWrapp = styled.View`
-  margin: 21px 0 4px 0;
-`;
+import { Button } from '../components/Button';
+import { ScreensWrapper } from '../components/ScreensWrapper';
 
 export const SubscribedScreen: React.FC = () => {
   const [toggle, setToggle] = useState(false);
@@ -21,17 +17,17 @@ export const SubscribedScreen: React.FC = () => {
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <ScreensWrapp>
+      <ScreensWrapper>
         {subscribed.length > 0 &&
           subscribed
             .filter((prayer) => prayer.checked === false)
             .map((prayer, index) => <PrayerBox data={prayer} key={index} />)}
         {subscribed.length === 0 && <Text>No subscribed prayers yet...</Text>}
-        <OvalBtnWrapp>
-          <OvalButton onPress={() => setToggle(!toggle)}>
+        <BtnWrapper>
+          <Button onPress={() => setToggle(!toggle)}>
             {toggle ? 'hide Answered Prayers' : 'Show Answered Prayers'}
-          </OvalButton>
-        </OvalBtnWrapp>
+          </Button>
+        </BtnWrapper>
         {toggle &&
           subscribed.length > 0 &&
           subscribed
@@ -42,7 +38,11 @@ export const SubscribedScreen: React.FC = () => {
         {toggle && subscribed.length === 0 && (
           <Text>No subscribed prayers yet...</Text>
         )}
-      </ScreensWrapp>
+      </ScreensWrapper>
     </ScrollView>
   );
 };
+
+export const BtnWrapper = styled.View`
+  margin: 21px 0 4px 0;
+`;

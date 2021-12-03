@@ -6,33 +6,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/native';
 import { BigAddSvgIcon } from '../../assets/icons/BigAddSvgIcon';
 import { AddPrayerInput } from '../components/AddPrayerInput';
-import { OvalButton } from '../components/OvalButton';
 import { PrayerBox } from '../components/PrayerBox/PrayerBox';
-import { ScreensWrapp } from '../components/ScreensWrapp';
 import { RootState } from '../redux/configureStore';
 import { createPrayer, getColumnById } from '../redux/ducks/column/columnSlice';
 import { MainStackParamList } from '../navigation/Navigator';
-import { DroppDownMenu } from '../components/DroppDownMenu';
 import { ModalWindow } from '../components/ModalWindow';
 import { getAllPrayers } from '../redux/ducks/prayer/prayerSlice';
 import { Colors } from '../styles/Colors';
 import { prayerSelector } from '../redux/ducks/prayer';
-
-export const FormWrapp = styled.View`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const IconContainer = styled.TouchableOpacity`
-  position: absolute;
-  top: 17px;
-  left: 20px;
-`;
-
-export const OvalBtnWrapp = styled.View`
-  margin: 21px 0 4px 0;
-`;
+import { DropsDownMenu } from '../components/DropsDownMenu';
+import { ScreensWrapper } from '../components/ScreensWrapper';
+import { Button } from '../components/Button';
 
 export interface IValues {
   prayer: string;
@@ -60,10 +44,10 @@ export const MyPrayersScreen: React.FC = () => {
 
   return (
     <React.Fragment>
-      <DroppDownMenu id={id} isShowMenu={isShowMenu} />
+      <DropsDownMenu id={id} isShowMenu={isShowMenu} />
       <ModalWindow id={id} isUpdate={true} />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <ScreensWrapp>
+        <ScreensWrapper>
           <Form
             onSubmit={(values: IValues, form) => {
               dispatch(
@@ -79,7 +63,7 @@ export const MyPrayersScreen: React.FC = () => {
               form.resetFieldState('prayer');
             }}
             render={({ form }) => (
-              <FormWrapp>
+              <FormWrapper>
                 <Field<string>
                   name="prayer"
                   placeholder="Add a prayer..."
@@ -91,7 +75,7 @@ export const MyPrayersScreen: React.FC = () => {
                 <IconContainer onPress={form.submit}>
                   <BigAddSvgIcon />
                 </IconContainer>
-              </FormWrapp>
+              </FormWrapper>
             )}
           />
           {isPrayersLoading && (
@@ -105,11 +89,11 @@ export const MyPrayersScreen: React.FC = () => {
           {!isPrayersLoading && unCheckedPrayers.length === 0 && (
             <Text>No prayers yet...</Text>
           )}
-          <OvalBtnWrapp>
-            <OvalButton onPress={() => setToggle(!toggle)}>
+          <BtnWrapper>
+            <Button onPress={() => setToggle(!toggle)}>
               {toggle ? 'hide Answered Prayers' : 'Show Answered Prayers'}
-            </OvalButton>
-          </OvalBtnWrapp>
+            </Button>
+          </BtnWrapper>
           {!isPrayersLoading &&
             toggle &&
             checkedPrayers.length > 0 &&
@@ -124,8 +108,24 @@ export const MyPrayersScreen: React.FC = () => {
           {isPrayersLoading && toggle && (
             <ActivityIndicator size="small" color={Colors.moonstoneBlue} />
           )}
-        </ScreensWrapp>
+        </ScreensWrapper>
       </ScrollView>
     </React.Fragment>
   );
 };
+
+export const FormWrapper = styled.View`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const IconContainer = styled.TouchableOpacity`
+  position: absolute;
+  top: 17px;
+  left: 20px;
+`;
+
+export const BtnWrapper = styled.View`
+  margin: 21px 0 4px 0;
+`;

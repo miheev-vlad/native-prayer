@@ -11,13 +11,13 @@ import {
 } from '../../redux/ducks/column/columnSlice';
 import { toggleModal } from '../../redux/ducks/modal/modalSlice';
 import { Colors } from '../../styles/Colors';
+import { Button } from '../Button';
 import { Input } from '../Input';
-import { OvalButton } from '../OvalButton';
 import {
   CloseBtnContainer,
-  CloseBtnWrapp,
+  CloseBtnWrapper,
   FormContainer,
-  HeadingWrapp,
+  HeadingWrapper,
   StyledText,
 } from './styles';
 
@@ -51,19 +51,19 @@ export const ModalWindow = ({ isUpdate, id }: any) => {
           flex: 1,
           height: SCREEN_HEIGHT,
         }}>
-        <CloseBtnWrapp>
+        <CloseBtnWrapper>
           <CloseBtnContainer
             onPress={() => {
               dispatch(toggleModal({ isShowModal: false }));
             }}>
             <Text>&#x2715;</Text>
           </CloseBtnContainer>
-        </CloseBtnWrapp>
-        <HeadingWrapp>
+        </CloseBtnWrapper>
+        <HeadingWrapper>
           <StyledText>
             {isUpdate ? 'Update Column' : 'Create Column'}
           </StyledText>
-        </HeadingWrapp>
+        </HeadingWrapper>
         <Form
           onSubmit={(values: IValues) => {
             if (!isUpdate) {
@@ -102,9 +102,9 @@ export const ModalWindow = ({ isUpdate, id }: any) => {
                 placeholder="Description"
                 component={Input}
               />
-              <OvalButton onPress={form.submit}>
+              <Button onPress={form.submit}>
                 {isUpdate ? 'Update' : 'Create'}
-              </OvalButton>
+              </Button>
             </FormContainer>
           )}
         />

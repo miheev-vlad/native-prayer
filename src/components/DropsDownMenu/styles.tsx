@@ -2,14 +2,14 @@ import styled from 'styled-components/native';
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../helpers/DimensionsHelper';
 import { Colors } from '../../styles/Colors';
 
-export const BackDropp = styled.View`
+export const BackDrops = styled.View`
   position: absolute;
   width: ${SCREEN_WIDTH}px;
   height: ${SCREEN_HEIGHT}px;
   background-color: transparent;
 `;
 
-export const BackDroppTouch = styled.TouchableOpacity`
+export const BackDropsTouch = styled.TouchableOpacity`
   width: 100%;
   height: 100%;
 `;

@@ -1,10 +1,5 @@
 import styled from 'styled-components/native';
-import { SCREEN_WIDTH } from '../../../../helpers/DimensionsHelper';
 import { Colors } from '../../../../styles/Colors';
-
-export const CommentsWrapp = styled.View`
-  width: ${SCREEN_WIDTH}px;
-`;
 
 export const CommentCardContainer = styled.View`
   width: 100%;
@@ -97,7 +92,7 @@ export const IconContainerUnUpdate = styled.TouchableOpacity`
   border: 2px solid ${Colors.rodeoDust};
 `;
 
-export const FormWrapp = styled.View`
+export const FormWrapper = styled.View`
   position: absolute;
   top: 0px;
   left: 0;
