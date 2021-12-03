@@ -1,0 +1,1 @@
+export { IconWrapp } from './IconWrapp';
